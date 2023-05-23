@@ -94,6 +94,10 @@ function App() {
         menu: "Menu",
         contact: "Ota yhteyttä",
         open: "Aukioloajat",
+        fusionText:
+          "Kokemusta aitojen kuubalaisten makujen ja herkullisten birria-tacojen sulautumisesta pop-up-ravintolassamme. Nauti herkullisista tacoistamme, jotka on viimeistelty kiusoittelevilla kastikkeilla, kuten allekirjoitus Wander Sauce ja Yum Yum. Liity seikkailulle kulinaristisessa maailmassamme, jota et tule unohtamaan!",
+        bestOfBothText:
+          "Nauti parhaista kahdesta maailmasta La Cocinassa, jossa kuubalainen keittiö kohtaa herkullisen birria-tacon taiteen. Tule maistamaan huolella valmistettuja ruokiamme, jotka on tehty tuoreimmista raaka-aineista ja täydennetty vastustamattomalla Wander Sauce- ja Yum Yum -kastikkeillamme. Liity seuraamme unohtumattomalle ruokailuelämykselle!",
       };
     } else {
       return {
@@ -101,6 +105,10 @@ function App() {
         menu: "Menu",
         contact: "Contact",
         open: "We're Open",
+        fusionText:
+          "Experience the fusion of authentic Cuban flavors and mouthwatering birria tacos at our pop-up restaurant. Indulge in our delicious tacos, enhanced with tantalizing sauces like our signature Wander Sauce and Yum Yum. Join us for a culinary adventure you won't forget!",
+        bestOfBothText:
+          "Enjoy the best of both worlds at La Cocina, where Cuban cuisine meets the delectable art of birria tacos. Come savor our carefully crafted dishes, made with the freshest ingredients and complemented by our irresistible Wander Sauce and Yum Yum. Join us for an unforgettable dining experience!",
       };
     }
   };
@@ -181,20 +189,10 @@ function App() {
                 {navbarText.welcome}
               </SectionTitle>
               <Typography variant="body1" component="p">
-                Experience the fusion of authentic Cuban flavors and
-                mouthwatering birria tacos at our pop-up restaurant. Indulge in
-                our delicious tacos, enhanced with tantalizing sauces like our
-                signature Wander Sauce and Yum Yum. Join us for a culinary
-                adventure you won't forget!
+                {navbarText.fusionText}
               </Typography>
               <br></br>
-              <Typography>
-                Enjoy the best of both worlds at La Cocina, where Cuban cuisine
-                meets the delectable art of birria tacos. Come savor our
-                carefully crafted dishes, made with the freshest ingredients and
-                complemented by our irresistible Wander Sauce and Yum Yum. Join
-                us for an unforgettable dining experience!
-              </Typography>
+              <Typography>{navbarText.bestOfBothText}</Typography>
             </SectionContent>
 
             <CardContainer>
