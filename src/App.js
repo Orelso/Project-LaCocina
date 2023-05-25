@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { styled } from "@mui/system";
+import { styled, useTheme } from "@mui/system";
 import {
   AppBar,
   Toolbar,
@@ -10,6 +10,12 @@ import {
   CardMedia,
   CssBaseline,
   Button,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  IconButton,
+  useMediaQuery,
 } from "@mui/material";
 import "./index.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -17,12 +23,15 @@ import { Grid } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const theme = createTheme({
   typography: {
     fontFamily: '"Rock Salt", cursive',
   },
 });
+
+const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
 const AppContainer = styled(Container)({
   display: "flex",
@@ -81,6 +90,14 @@ const CardContainer = styled(Card)({
 });
 function App() {
   const [language, setLanguage] = useState("en");
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const themeUsed = useTheme();
+  const isMobile = useMediaQuery(themeUsed.breakpoints.down("sm"));
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   const handleLanguageChange = () => {
     // Toggle between "en" and "fi" languages
@@ -115,44 +132,102 @@ function App() {
 
   const navbarText = getNavbarTextByLanguage();
 
+  const ListItemLink = (props) => {
+    return <ListItem button component="a" {...props} />;
+  };
+
+  const drawer = (
+    <div>
+      <List>
+        {["welcome", "menu", "contact"].map((text, index) => (
+          <ListItemLink
+            href={`#${text}`}
+            key={text}
+            onClick={() => setMobileOpen(false)}
+          >
+            <ListItemText primary={navbarText[text]} />
+          </ListItemLink>
+        ))}
+      </List>
+    </div>
+  );
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
         <AppBarContainer position="sticky" sx={{ backgroundColor: "#DA70D6" }}>
-          <ToolbarContainer style={{ display: "flex" }}>
-            <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
-              <a href="#logo">
-                <img src="logo.png" alt="Logo" height="60px" width="auto" />
-              </a>
-            </Typography>
-            <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
-              <a href="#welcome">{navbarText.welcome}</a>
-            </Typography>
-            <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
-              <a href="#menu">{navbarText.menu}</a>
-            </Typography>
-
-            <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
-              <a href="#contact">{navbarText.contact}</a>
-            </Typography>
-            {/* <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
-              <a href="#open">{navbarText.open}</a>
-            </Typography> */}
-            <Button
-              onClick={handleLanguageChange}
-              style={{
-                backgroundColor: "black",
-                color: "white",
-                padding: "0.25rem 0.5rem",
-                fontSize: "15px",
-              }}
-            >
-              🇬🇧/🇫🇮
-            </Button>
-          </ToolbarContainer>
+          {isMobile ? (
+            <React.Fragment>
+              <ToolbarContainer style={{ display: "flex" }}>
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="start"
+                  onClick={handleDrawerToggle}
+                  sx={{ mr: 2 }}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Typography
+                  variant="h6"
+                  component="div"
+                  style={{ flexGrow: 1 }}
+                >
+                  <a href="#logo">
+                    <img src="logo.png" alt="Logo" height="60px" width="auto" />
+                  </a>
+                </Typography>
+                <Button
+                  onClick={handleLanguageChange}
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    padding: "0.25rem 0.5rem",
+                    fontSize: "15px",
+                  }}
+                >
+                  🇬🇧/🇫🇮
+                </Button>
+              </ToolbarContainer>
+              <Drawer
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                anchor="left"
+              >
+                {drawer}
+              </Drawer>
+            </React.Fragment>
+          ) : (
+            <ToolbarContainer style={{ display: "flex" }}>
+              <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
+                <a href="#logo">
+                  <img src="logo.png" alt="Logo" height="60px" width="auto" />
+                </a>
+              </Typography>
+              <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
+                <a href="#welcome">{navbarText.welcome}</a>
+              </Typography>
+              <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
+                <a href="#menu">{navbarText.menu}</a>
+              </Typography>
+              <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
+                <a href="#contact">{navbarText.contact}</a>
+              </Typography>
+              <Button
+                onClick={handleLanguageChange}
+                style={{
+                  backgroundColor: "black",
+                  color: "white",
+                  padding: "0.25rem 0.5rem",
+                  fontSize: "15px",
+                }}
+              >
+                🇬🇧 / 🇫🇮
+              </Button>
+            </ToolbarContainer>
+          )}
         </AppBarContainer>
-
         <AppContainer>
           <CardContainer>
             <CardMedia
@@ -184,6 +259,7 @@ function App() {
           </CardContainer>
 
           <SectionContainer>
+            <Offset id="welcome" />
             <SectionContent id="welcome">
               <SectionTitle variant="h4" component="div">
                 {navbarText.welcome}
@@ -195,15 +271,21 @@ function App() {
               <Typography>{navbarText.bestOfBothText}</Typography>
             </SectionContent>
 
-            <CardContainer>
-              <CardMedia
-                component="img"
-                height="400"
-                image="https://designshack.net/wp-content/uploads/best-food-drink-menu-templates.jpg"
-                alt="Restaurant Image"
-                style={{ width: "100%", objectFit: "cover" }}
-              />
-            </CardContainer>
+            <SectionContainer>
+              <Offset id="menu" />
+              <SectionContent>
+                <CardContainer>
+                  <CardMedia
+                    component="img"
+                    height="auto"
+                    image="/happy.png"
+                    alt="Restaurant Image"
+                    style={{ width: "100%", objectFit: "cover" }}
+                  />
+                </CardContainer>
+              </SectionContent>
+            </SectionContainer>
+            <Offset id="contact" />
 
             <SectionContent id="contact">
               <SectionTitle variant="h4" component="div">
@@ -211,46 +293,85 @@ function App() {
               </SectionTitle>
               <Grid
                 container
-                direction="row"
+                direction="column"
                 spacing={2}
                 alignItems="center"
                 justifyContent="center"
               >
                 <Grid item>
-                  <PhoneIcon />
+                  <Grid
+                    container
+                    direction="row"
+                    alignItems="center"
+                    spacing={1}
+                  >
+                    <Grid item>
+                      <PhoneIcon />
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        variant="body1"
+                        component="p"
+                        color="textPrimary"
+                      >
+                        <a href="tel:+358451243334">+358 45 1243334</a>
+                      </Typography>
+                    </Grid>
+                  </Grid>
                 </Grid>
                 <Grid item>
-                  <Typography variant="body1" component="p" color="textPrimary">
-                    <a href="tel:+358451243334">+358 45 1243334</a>
-                  </Typography>
+                  <Grid
+                    container
+                    direction="row"
+                    alignItems="center"
+                    spacing={1}
+                  >
+                    <Grid item>
+                      <LocationOnIcon />
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        variant="body1"
+                        component="p"
+                        color="textPrimary"
+                      >
+                        <a
+                          href="https://goo.gl/maps/VTV1oVcMLVNYGC389?coh=178571&entry=tt"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Myllytyry 25240 Salo
+                        </a>
+                      </Typography>
+                    </Grid>
+                  </Grid>
                 </Grid>
                 <Grid item>
-                  <LocationOnIcon />
-                </Grid>
-                <Grid item>
-                  <Typography variant="body1" component="p" color="textPrimary">
-                    <a
-                      href="https://goo.gl/maps/VTV1oVcMLVNYGC389?coh=178571&entry=tt"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Myllytyry 25240 Salo
-                    </a>
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <InstagramIcon />
-                </Grid>
-                <Grid item>
-                  <Typography variant="body1" component="p" color="textPrimary">
-                    <a
-                      href="https://www.instagram.com/lacocinasuomi/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Instagram
-                    </a>
-                  </Typography>
+                  <Grid
+                    container
+                    direction="row"
+                    alignItems="center"
+                    spacing={1}
+                  >
+                    <Grid item>
+                      <InstagramIcon />
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        variant="body1"
+                        component="p"
+                        color="textPrimary"
+                      >
+                        <a
+                          href="https://www.instagram.com/lacocinasuomi/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Instagram
+                        </a>
+                      </Typography>
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
             </SectionContent>
