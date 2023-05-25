@@ -37,8 +37,8 @@ const AppContainer = styled(Container)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  paddingTop: "2rem",
-  paddingBottom: "2rem",
+  paddingTop: "1rem",
+  paddingBottom: "1rem",
 });
 
 const AppBarContainer = styled(AppBar)({
@@ -55,7 +55,7 @@ const ToolbarContainer = styled(Toolbar)({
 });
 
 const SectionContainer = styled(Container)({
-  marginBottom: "2rem",
+  marginBottom: "0.5rem",
   padding: "1rem",
   "@media (min-width: 600px)": {
     padding: "2rem",
@@ -65,11 +65,11 @@ const SectionContainer = styled(Container)({
 });
 
 const SectionTitle = styled(Typography)({
-  marginBottom: "1rem",
+  marginBottom: "0.25rem",
 });
 
 const SectionContent = styled(Box)({
-  marginBottom: "2rem",
+  marginBottom: "0.5rem",
   backgroundColor: "#f5f5f5",
   padding: "1rem",
   display: "flex",
@@ -86,8 +86,9 @@ const CardContainer = styled(Card)({
   position: "relative",
   display: "flex",
   justifyContent: "center",
-  marginBottom: "2rem",
+  marginBottom: "0.5rem",
 });
+
 function App() {
   const [language, setLanguage] = useState("en");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -115,6 +116,7 @@ function App() {
           "Kokemusta aitojen kuubalaisten makujen ja herkullisten birria-tacojen sulautumisesta pop-up-ravintolassamme. Nauti herkullisista tacoistamme, jotka on viimeistelty kiusoittelevilla kastikkeilla, kuten allekirjoitus Wander Sauce ja Yum Yum. Liity seikkailulle kulinaristisessa maailmassamme, jota et tule unohtamaan!",
         bestOfBothText:
           "Nauti parhaista kahdesta maailmasta La Cocinassa, jossa kuubalainen keittiö kohtaa herkullisen birria-tacon taiteen. Tule maistamaan huolella valmistettuja ruokiamme, jotka on tehty tuoreimmista raaka-aineista ja täydennetty vastustamattomalla Wander Sauce- ja Yum Yum -kastikkeillamme. Liity seuraamme unohtumattomalle ruokailuelämykselle!",
+        birriaTacos: "Birria Tacot",
       };
     } else {
       return {
@@ -126,6 +128,7 @@ function App() {
           "Experience the fusion of authentic Cuban flavors and mouthwatering birria tacos at our pop-up restaurant. Indulge in our delicious tacos, enhanced with tantalizing sauces like our signature Wander Sauce and Yum Yum. Join us for a culinary adventure you won't forget!",
         bestOfBothText:
           "Enjoy the best of both worlds at La Cocina, where Cuban cuisine meets the delectable art of birria tacos. Come savor our carefully crafted dishes, made with the freshest ingredients and complemented by our irresistible Wander Sauce and Yum Yum. Join us for an unforgettable dining experience!",
+        birriaTacos: "Birria Tacos",
       };
     }
   };
@@ -253,7 +256,7 @@ function App() {
               }}
             >
               <Typography variant="h2" component="div">
-                Birria Tacos
+                {navbarText.birriaTacos}
               </Typography>
             </Box>
           </CardContainer>
@@ -270,23 +273,25 @@ function App() {
               <br></br>
               <Typography>{navbarText.bestOfBothText}</Typography>
             </SectionContent>
+          </SectionContainer>
 
-            <SectionContainer>
-              <Offset id="menu" />
-              <SectionContent>
-                <CardContainer>
-                  <CardMedia
-                    component="img"
-                    height="auto"
-                    image="/happy.png"
-                    alt="Restaurant Image"
-                    style={{ width: "100%", objectFit: "cover" }}
-                  />
-                </CardContainer>
-              </SectionContent>
-            </SectionContainer>
+          <SectionContainer>
+            <Offset id="menu" />
+            <SectionContent>
+              <CardContainer>
+                <CardMedia
+                  component="img"
+                  height="auto"
+                  image="/happy.png"
+                  alt="Restaurant Image"
+                  style={{ width: "100%", objectFit: "cover" }}
+                />
+              </CardContainer>
+            </SectionContent>
+          </SectionContainer>
+
+          <SectionContainer>
             <Offset id="contact" />
-
             <SectionContent id="contact">
               <SectionTitle variant="h4" component="div">
                 {navbarText.contact}
