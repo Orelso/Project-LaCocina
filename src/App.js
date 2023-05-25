@@ -282,7 +282,7 @@ function App() {
                 <CardMedia
                   component="img"
                   height="auto"
-                  image="/happy.png"
+                  image="/menu.png"
                   alt="Restaurant Image"
                   style={{ width: "100%", objectFit: "cover" }}
                 />
