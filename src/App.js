@@ -268,10 +268,10 @@ function App() {
                 {navbarText.welcome}
               </SectionTitle>
               <Typography variant="body1" component="p">
-                {navbarText.fusionText}
+                {/* {navbarText.fusionText} */}
               </Typography>
               <br></br>
-              <Typography>{navbarText.bestOfBothText}</Typography>
+              {/* <Typography>{navbarText.bestOfBothText}</Typography> */}
             </SectionContent>
           </SectionContainer>
 
