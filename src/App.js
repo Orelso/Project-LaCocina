@@ -24,6 +24,8 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import MenuIcon from "@mui/icons-material/Menu";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import GoogleIcon from "@mui/icons-material/Google";
 
 const theme = createTheme({
   typography: {
@@ -114,8 +116,6 @@ function App() {
         open: "Aukioloajat",
         fusionText:
           "Kokemusta aitojen kuubalaisten makujen ja herkullisten birria-tacojen sulautumisesta pop-up-ravintolassamme. Nauti herkullisista tacoistamme, jotka on viimeistelty kiusoittelevilla kastikkeilla, kuten allekirjoitus Wander Sauce ja Yum Yum. Liity seikkailulle kulinaristisessa maailmassamme, jota et tule unohtamaan!",
-        bestOfBothText:
-          "Nauti parhaista kahdesta maailmasta La Cocinassa, jossa kuubalainen keittiö kohtaa herkullisen birria-tacon taiteen. Tule maistamaan huolella valmistettuja ruokiamme, jotka on tehty tuoreimmista raaka-aineista ja täydennetty vastustamattomalla Wander Sauce- ja Yum Yum -kastikkeillamme. Liity seuraamme unohtumattomalle ruokailuelämykselle!",
         birriaTacos: "Birria Tacot",
       };
     } else {
@@ -125,9 +125,7 @@ function App() {
         contact: "Contact",
         open: "We're Open",
         fusionText:
-          "Experience the fusion of authentic Cuban flavors and mouthwatering birria tacos at our pop-up restaurant. Indulge in our delicious tacos, enhanced with tantalizing sauces like our signature Wander Sauce and Yum Yum. Join us for a culinary adventure you won't forget!",
-        bestOfBothText:
-          "Enjoy the best of both worlds at La Cocina, where Cuban cuisine meets the delectable art of birria tacos. Come savor our carefully crafted dishes, made with the freshest ingredients and complemented by our irresistible Wander Sauce and Yum Yum. Join us for an unforgettable dining experience!",
+          "La Cocina is a delightful pop-up serving Latin cuisine with a Cuban-American twist. Specializing in Birria tacos, the slow-cooked meat and aromatic spices create an unforgettable flavor experience. To top it off, their homemade cookies are simply divine. Combining heritage and culinary expertise, La Cocina offers a small but unforgettable dining adventure.",
         birriaTacos: "Birria Tacos",
       };
     }
@@ -282,7 +280,7 @@ function App() {
                 <CardMedia
                   component="img"
                   height="auto"
-                  image="/menu.png"
+                  image="/1.png"
                   alt="Restaurant Image"
                   style={{ width: "100%", objectFit: "cover" }}
                 />
@@ -373,6 +371,60 @@ function App() {
                           rel="noopener noreferrer"
                         >
                           Instagram
+                        </a>
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item>
+                  <Grid
+                    container
+                    direction="row"
+                    alignItems="center"
+                    spacing={1}
+                  >
+                    <Grid item>
+                      <TwitterIcon />
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        variant="body1"
+                        component="p"
+                        color="textPrimary"
+                      >
+                        <a
+                          href="https://twitter.com/lacocinasuomi"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Twitter
+                        </a>
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item>
+                  <Grid
+                    container
+                    direction="row"
+                    alignItems="center"
+                    spacing={1}
+                  >
+                    <Grid item>
+                      <GoogleIcon />
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        variant="body1"
+                        component="p"
+                        color="textPrimary"
+                      >
+                        <a
+                          href="https://www.google.com/search?q=La+Cocina+Suomi&stick=H4sIAAAAAAAA_-NgU1I1qDAxs0g2MTQzNDQzTjIxTza2MqhIMTE0SkxKMjQ2MzewME81WMTK75Oo4JyfnJmXqBBcmp-bCQDdhw1ROwAAAA&hl=en-GB&mat=CRsgzpx924rQElcBpsFACwFx7UMX-2P3AGNPKgLNl4jgMnvAfrLB_vqKZ3ofLI5nuhL9Q9fNt-6Y6MUZWEiuXqT9nT4xzI4bURX2ednjV4T2gD6djvmivj7FykPRXtQ3W4Q&authuser=1"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Google
                         </a>
                       </Typography>
                     </Grid>
