@@ -135,7 +135,7 @@ function App() {
               <Grid container spacing={2}>
                 {Object.values(images).map((imageUrl, index) => (
                   <Grid item xs={6} sm={4} key={index}>
-                    <img src={imageUrl} alt={`Image ${index + 1}`} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+<img src={imageUrl} alt={`${index + 1}`} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   </Grid>
                 ))}
               </Grid>
