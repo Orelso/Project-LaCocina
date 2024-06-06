@@ -41,7 +41,8 @@ const theme = createTheme({
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 const AppContainer = styled(Container)({ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "1rem", paddingBottom: "1rem" });
-const AppBarContainer = styled(AppBar)({ padding: "0 1rem", "@media (min-width: 600px)": { padding: "0 2rem" }});
+const AppBarContainer = styled(AppBar)({ padding: "0 1rem", "@media (min-width: 600px)": { padding: "0 2rem" },  boxShadow: "none" // Add this line to remove the box shadow
+});
 const ToolbarContainer = styled(Toolbar)({ display: "flex", justifyContent: "space-between", padding: "0" });
 const SectionContainer = styled(Container)({ marginBottom: "0.5rem", padding: "1rem", "@media (min-width: 600px)": { padding: "2rem" }, width: "100%", maxWidth: "100%" });
 const SectionTitle = styled(Typography)({ marginBottom: "0.25rem" });
@@ -61,9 +62,9 @@ function App() {
 
   const getNavbarTextByLanguage = () => {
     if (language === "fi") {
-      return { welcome: "Tervetuloa", menu: "Menu", contact: "Ota yhteyttä", open: "Aukioloajat", fusionText: "La Cocina on viehättävä salolainen pop-up-ravintola, joka tarjoilee latinalaisen keittiön herkkuja kuubalaisella vivahteella. Tarjoilemme tänä kesänä tacoja hitaasti haudutetuilla liha- ja kasvistäytteillä. Kotitekoisista kastikkeista löytyy vaihtoehtoja niin tuliseen kuin miedompaankin makuun. Tervetuloa!", birriaTacos: "Birria Tacot" };
+      return { welcome: "Tervetuloa", menu: "Menu", contact: "Ota yhteyttä", open: "Aukioloajat", fusionText: "La Cocina on lumoava pop-up-ravintola, joka yhdistää latinalaisen keittiön kubalais-amerikkalaiseen vivahteeseen. Nauti heidän nimikkoruoistaan, hitaasti kypsennetyistä possutacoista, jotka pursuavat makua, ja maista hitaasti kypsennetyn jackfruitin ainutlaatuista makua. Jokainen suupala on perinteen ja maun juhlaa. Ja makean lopetuksen kruunaa heidän jumalalliset kotitekoiset keksinsä. Koe La Cocinan taika, jossa perinne kohtaa innovaation, kaikki edulliseen hintaan.", birriaTacos: "Latin Ruoka" };
     } else {
-      return { welcome: "Welcome", menu: "Menu", contact: "Contact", open: "We're Open", fusionText: "La Cocina is a delightful pop-up serving Latin cuisine with a Cuban-American twist. Specializing in Birria tacos, the slow-cooked meat and aromatic spices create an unforgettable flavor experience. To top it off, their homemade cookies are simply divine. Combining heritage and culinary expertise, La Cocina offers a small but unforgettable dining adventure.", birriaTacos: "Birria Tacos" };
+      return { welcome: "Welcome", menu: "Menu", contact: "Contact", open: "We're Open", fusionText: "La Cocina is a pop-up, blending Latin cuisine with a Cuban-American twist. Indulge in their signature pork cooked in beer tacos, packed with flavor, and savor the unique taste of slow-cooked Jackfruit tacos. Each bite is a celebration of tradition and taste. And for a sweet ending, don't miss their divine homemade cookies. Experience the magic of La Cocina, where heritage meets innovation, all at an affordable price.", birriaTacos: "Latin Food" };
     }
   };
 
@@ -124,9 +125,9 @@ function App() {
           <SectionContainer>
             <Offset id="menu" />
             <SectionContent>
-              <CardContainer>
-                <CardMedia component="img" height="auto" image="/1.png" alt="Restaurant Image" style={{ width: "100%", objectFit: "cover" }} />
-              </CardContainer>
+              
+                <CardMedia component="img" height="auto" image="/1.png" alt="Restaurant Image" style={{ width: "60%", objectFit: "cover" }} />
+              
             </SectionContent>
           </SectionContainer>
           <SectionContainer>
@@ -147,47 +148,33 @@ function App() {
     <SectionTitle variant="h4" component="div">{navbarText.contact}</SectionTitle>
     <Grid container direction="row" spacing={2} style={{ justifyContent: 'center', alignItems: 'center' }}>
       <Grid item>
-        <PhoneIcon />
+        <a href="tel:+358451243334">
+          <PhoneIcon />
+        </a>
       </Grid>
       <Grid item>
-        <Typography variant="body1" component="p" color="textPrimary">
-          <a href="tel:+358451243334">+358 45 1243334</a>
-        </Typography>
+        <a href="https://goo.gl/maps/VTV1oVcMLVNYGC389?coh=178571&entry=tt" target="_blank" rel="noopener noreferrer">
+          <LocationOnIcon />
+        </a>
       </Grid>
       <Grid item>
-        <LocationOnIcon />
+        <a href="https://www.instagram.com/lacocinasuomi/" target="_blank" rel="noopener noreferrer">
+          <InstagramIcon />
+        </a>
       </Grid>
       <Grid item>
-        <Typography variant="body1" component="p" color="textPrimary">
-          <a href="https://goo.gl/maps/VTV1oVcMLVNYGC389?coh=178571&entry=tt" target="_blank" rel="noopener noreferrer">Myllytyry 25240 Salo</a>
-        </Typography>
+        <a href="https://twitter.com/lacocinasuomi" target="_blank" rel="noopener noreferrer">
+          <TwitterIcon />
+        </a>
       </Grid>
       <Grid item>
-        <InstagramIcon />
-      </Grid>
-      <Grid item>
-        <Typography variant="body1" component="p" color="textPrimary">
-          <a href="https://www.instagram.com/lacocinasuomi/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </Typography>
-      </Grid>
-      <Grid item>
-        <TwitterIcon />
-      </Grid>
-      <Grid item>
-        <Typography variant="body1" component="p" color="textPrimary">
-          <a href="https://twitter.com/lacocinasuomi" target="_blank" rel="noopener noreferrer">Twitter</a>
-        </Typography>
-      </Grid>
-      <Grid item>
-        <GoogleIcon />
-      </Grid>
-      <Grid item>
-        <Typography variant="body1" component="p" color="textPrimary">
-          <a href="https://www.google.com/search?q=La+Cocina+Suomi&stick=H4sIAAAAAAAA_-NgU1I1qDAxs0g2MTQzNDQzTjIxTza2MqhIMTE0SkxKMjQ2MzewME81WMTK75Oo4JyfnJmXqBBcmp-bCQDdhw1ROwAAAA&hl=en-GB&mat=CRsgzpx924rQElcBpsFACwFx7UMX-2P3AGNPKgLNl4jgMnvAfrLB_vqKZ3ofLI5nuhL9Q9fNt-6Y6MUZWEiuXqT9nT4xzI4bURX2ednjV4T2gD6djvmivj7FykPRXtQ3W4Q&authuser=1" target="_blank" rel="noopener noreferrer">Google</a>
-        </Typography>
+        <a href="https://www.google.com/search?q=La+Cocina+Suomi&stick=H4sIAAAAAAAA_-NgU1I1qDAxs0g2MTQzNDQzTjIxTza2MqhIMTE0SkxKMjQ2MzewME81WMTK75Oo4JyfnJmXqBBcmp-bCQDdhw1ROwAAAA&hl=en-GB&mat=CRsgzpx924rQElcBpsFACwFx7UMX-2P3AGNPKgLNl4jgMnvAfrLB_vqKZ3ofLI5nuhL9Q9fNt-6Y6MUZWEiuXqT9nT4xzI4bURX2ednjV4T2gD6djvmivj7FykPRXtQ3W4Q&authuser=1" target="_blank" rel="noopener noreferrer">
+          <GoogleIcon />
+        </a>
       </Grid>
     </Grid>
-  </SectionContent>
+</SectionContent>
+
 </SectionContainer>
         </AppContainer>
       </div>
