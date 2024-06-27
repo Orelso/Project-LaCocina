@@ -46,7 +46,7 @@ const AppBarContainer = styled(AppBar)({ padding: "0 1rem", "@media (min-width: 
 const ToolbarContainer = styled(Toolbar)({ display: "flex", justifyContent: "space-between", padding: "0" });
 const SectionContainer = styled(Container)({ marginBottom: "0.5rem", padding: "1rem", "@media (min-width: 600px)": { padding: "2rem" }, width: "100%", maxWidth: "100%" });
 const SectionTitle = styled(Typography)({ marginBottom: "0.25rem" });
-const SectionContent = styled(Box)({ marginBottom: "0.5rem", backgroundColor: "#f5f5f5", padding: "1rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", "@media (min-width: 600px)": { padding: "2rem" } });
+const SectionContent = styled(Box)({ marginBottom: "0.5rem", backgroundColor: "#fcefef", padding: "1rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", "@media (min-width: 600px)": { padding: "2rem" } });
 const CardContainer = styled(Card)({ width: "100%", position: "relative", display: "flex", justifyContent: "center", marginBottom: "0.5rem" });
 const PictureBox = styled(Box)({ marginBottom: "2rem" }); // Adjust margin as needed
 
@@ -87,7 +87,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
-        <AppBarContainer position="sticky" sx={{ backgroundColor: "#DA70D6" }}>
+        <AppBarContainer position="sticky" sx={{ backgroundColor: "#fcefef" }}>
           {isMobile ? (
             <React.Fragment>
               <ToolbarContainer style={{ display: "flex" }}>
@@ -109,7 +109,7 @@ function App() {
         </AppBarContainer>
         <AppContainer>
           <CardContainer>
-            <CardMedia component="img" height="400" image="https://www.living2cook.com/wp-content/uploads/2022/01/IMG_6179-1-scaled.jpg" alt="Restaurant Image" style={{ width: "100%", objectFit: "cover" }} />
+            <CardMedia component="img" height="400" image="/bi.jpeg" alt="Restaurant Image" style={{ width: "100%", objectFit: "cover" }} />
             <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", color: "#fff", textAlign: "center", width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <Typography variant="h2" component="div">{navbarText.birriaTacos}</Typography>
             </Box>
