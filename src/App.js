@@ -183,3 +183,12 @@ function App() {
 }
 
 export default App;
+
+
+// Cocina on kuuden asiakaspaikan pieni tacoravintola Salon keskustassa. Yrityksen omistaja, ravintoloitsija Orelso Vitam valmistaa täytteet etukäteen ja viimeistelee annokset asiakkaiden tilausten mukaan salin puolella. Hän on toistaiseksi yrityksensä ainoa työntekijä, käytännön asioissa apuna toimii vaimo Sanni Suilamo. Tilaukset tehdään Yonoton-tilauspisteen kautta, jolloin ravintolassa ei käsitellä lainkaan käteistä. Tilaus menee kokille sähköisesti ja asiakas noutaa tilauksensa tiskiltä omalla nimellään. Asiakkaat voivat joko syödä nopeasti valmistuvan ateriansa salissa tai ottaa sen mukaan.  
+
+// Varsinaisen keittiön puolella on kuumennuskeittiö, täytteet valmistetaan hauduttamalla. Taco- ja tostadatäytteitä on 3-4 ja jälkiruokavaihtoehtoja 1-2. Menussa on aluksi lihatäyte (hitaasti haudutettu porsaanniska) sekä kaksi kasvistäytettä (papu ja jakkihedelmä). Ravintolassa ei valmisteta ruokaa paistamalla tai käristämällä eikä siellä ole uppopaistoa. Tacojen lisukkeena tarjoillaan nachoja. Juomina Coca-Cola -Companyn limsoja sekä meksikolaisia Jarritos-limonadeja. Liha tilataan esivalmisteltuna Salolaiselta Meriniityn lihalta ja kasvikset ja muu ravintolan päivittäistavara Kimmon Vihannekselta ja toimitus on 1-2 krt viikossa.
+
+// Ravintola on auki neljänä päivänä viikossa ke-la. Tacojen lisäksi ravintolassa tarjoillaan jälkiruokana amerikkalaistyyppisiä cookieseja.  Kesäaikaan ruokamyyntiä suunnitellaan tehtäväksi myös toreilla ja tapahtumissa, alkaen kuitenkin vasta kesästä 2025. Ravintoloitsijalla on työkokemusta ravintola-alalta Yhdysvalloista ja hän on pitänyt La Cocina -popuptacomyyntitelttaa Suomessa Salon ja Sauvon toreilla kahtena kesänä. Hän on hiljattain suorittanut Suomessa hygieniapassin ja käynyt terveyskartoituksessa (salmonellan riskiarvio). 
+
+// Liiketila on valmiiksi 6 asiakaspaikan ravintolatoimintaan sopiva ja asia on varmistettu Salon rakennusvalvonnasta. Pienistä muutostöistä (putkityöt ja keittiön rasvanerotin ja aktiivihiilihuuvien asennus) on sovittu LVI-tarkastaja Antti Jalavan kanssa. Remontti on aloitettu ja tärkeimmät muutostyöt on jo tehty. Ravintolatilan uuden pohjakuvan on suunnitellut ja tehnyt Salolainen arkkitehtitoimisto Arkkitehtitoimi. Muutostöiden osalta olemme myös konsultoineet paikallista terveystarkastajaa.
